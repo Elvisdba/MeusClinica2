@@ -9,7 +9,7 @@ package co.edu.intecap.clinicaveterinaria.modelo.vo;
  *
  * @author capacitaciones
  */
-public class TipoMascota {
+public class TipoMascotaVo {
     private int idTipoMascota;
     private String Nombre;
     private boolean estado;
@@ -21,30 +21,22 @@ public class TipoMascota {
         return idTipoMascota;
     }
 
-    /**
-     * @param idTipoMascota the idTipoMascota to set
-     */
+    
     public void setIdTipoMascota(int idTipoMascota) {
         this.idTipoMascota = idTipoMascota;
     }
 
-    /**
-     * @return the Nombre
-     */
+   
     public String getNombre() {
         return Nombre;
     }
 
-    /**
-     * @param Nombre the Nombre to set
-     */
+   
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
 
-    /**
-     * @return the estado
-     */
+    
     public boolean isEstado() {
         return estado;
     }
