@@ -96,7 +96,7 @@ public class ConsultaDao extends Conexion implements GenericoDao<ConsultaVo>{
                 consulta.setEstado(rs.getString("estado"));
                 consulta.setIdMedico(rs.getInt("id_medico"));
                 consulta.setIdHistoria(rs.getInt("id_historia"));
-                consulta.add(consulta);
+                lista.add(consulta);
             }   
         } catch (Exception e) {
         e.printStackTrace(System.err);
@@ -108,6 +108,7 @@ public class ConsultaDao extends Conexion implements GenericoDao<ConsultaVo>{
 
     @Override
     public ConsultaVo consultar(int id) {
+    return null;
     }
     
 }
