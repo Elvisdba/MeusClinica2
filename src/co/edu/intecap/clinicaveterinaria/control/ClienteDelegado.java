@@ -1,7 +1,7 @@
 package co.edu.intecap.clinicaveterinaria.control;
 
-import co.edu.intecap.clinicaveterinaria.dao.MascotaDao;
-import co.edu.intecap.clinicaveterinaria.modelo.vo.MascotaVo;
+import co.edu.intecap.clinicaveterinaria.dao.ClienteDao;
+import co.edu.intecap.clinicaveterinaria.modelo.vo.ClienteVo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
@@ -9,52 +9,53 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author capacitaciones
+ * @author pc
  */
-public class MascotaDelegado {
-    //atributos de clase que son constantes (su valor como objeto mo puede cambiar)
+public class ClienteDelegado {
     private final JPanel contenedor;
-    private final MascotaDao mascotadao;
+    private final ClienteDao clientedao;
 
-    public MascotaDelegado(JPanel contenedor) {
+    public ClienteDelegado(JPanel contenedor) {
         //asignacion inicial el valor de las constantes
         this.contenedor = contenedor;
-        this.mascotadao = new MascotaDao();
+        this.clientedao = new ClienteDao();
     }
-    public void insertarMascota(MascotaVo mascotaVo){
+    public void insertarCliente(ClienteVo clienteVo){
         try {
-            this.mascotadao.insertar(mascotaVo);
+            this.clientedao.insertar(clienteVo);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(contenedor, e.getMessage(), "error en insercion", JOptionPane.ERROR_MESSAGE);
         }
-    }public void editarMascota(MascotaVo mascotaVo){
+    }public void editarCliente(ClienteVo clienteVo){
             try {
-                this.mascotadao.editar(mascotaVo);
+                this.clientedao.editar(clienteVo);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(contenedor, e.getMessage(), "error en insercion", JOptionPane.ERROR_MESSAGE);
 
             }
     }
     
-    public List<MascotaVo> consultarMascotas(){
-        List<MascotaVo> listaMascotas;
+    public List<ClienteVo> consultarClientes(){
+        List<ClienteVo> listaClientes;
         try {
-         listaMascotas = this.mascotadao.consultar();
+         listaClientes = this.clientedao.consultar();
         } catch (Exception e) {
-            listaMascotas = new ArrayList<>();
+            listaClientes = new ArrayList<>();
             JOptionPane.showMessageDialog(contenedor, e.getMessage(), "error en insercion", JOptionPane.ERROR_MESSAGE);
         }
-    return listaMascotas;
+    return listaClientes;
     }
     
-    public MascotaVo consultarMascota(int id){
-        MascotaVo mascotaVo;
+    public ClienteVo consultarCliente(int id){
+        ClienteVo clienteVo;
         try {
-            mascotaVo = this.mascotadao.consultar(id);
+            clienteVo = this.clientedao.consultar(id);
         } catch (Exception e) {
-            mascotaVo = new MascotaVo();
+            clienteVo = new ClienteVo();
             JOptionPane.showMessageDialog(contenedor, e.getMessage(), "error en insercion", JOptionPane.ERROR_MESSAGE);
         }
-        return mascotaVo;
-    }
+        return clienteVo;
+    
 }
+   
+    }
