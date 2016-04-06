@@ -5,12 +5,33 @@
  */
 package co.edu.intecap.clinicaveterinaria.vista.paneles;
 
+import co.edu.intecap.clinicaveterinaria.control.MascotaDelegado;
+import co.edu.intecap.clinicaveterinaria.modelo.vo.MascotaVo;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author capacitaciones
  */
 public class MascotaPanel extends javax.swing.JPanel {
 
+    private void registrarMascota(){
+        MascotaVo mascotaVo = new MascotaVo();
+        //asignar nombre del tipo de mascota
+        mascotaVo.setNombre(txtNombre.getText());
+        
+        mascotaVo.setEstado(cbxEstado.isSelected());
+        mascotaVo.setIdTipoMascota(cboTipoMascota.getSelectedIndex());
+        mascotaVo.setIdCliente(cboCliente.getSelectedIndex());
+        
+        
+
+        new MascotaDelegado(this).insertarMascota(mascotaVo);
+        //mensaje de confirmacion de registro
+        JOptionPane.showMessageDialog(this, "Tipo de Mascota Registrado", "Registro de Datos", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    
     /**
      * Creates new form MascotaPanel
      */
